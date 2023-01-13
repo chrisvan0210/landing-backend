@@ -1,0 +1,32 @@
+{
+  "development": {
+    "username": "admin",
+    "password": "TLH0BH9J.SfvtOm8",
+    "database": "admin_page",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "logging": false,
+    "query": {
+      "raw": true
+    },
+    "timezone": "+08:00"
+  },
+  "production": {
+    "username": "admin",
+    "password": "TLH0BH9J.SfvtOm8",
+    "database": "admin_page",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "logging": false,
+    "query": {
+      "raw": true
+    },
+    "timezone": "+08:00",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
+  }
+}

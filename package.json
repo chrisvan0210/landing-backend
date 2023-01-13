@@ -1,0 +1,25 @@
+{
+  "name": "host-controllers",
+  "version": "1.0.0",
+  "description": "Node backend for controller",
+  "main": "index.js",
+  "author": "ChrishVan",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mysql2": "^3.0.1",
+    "nodemon": "^2.0.20",
+    "sequelize": "^6.28.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/node": "^7.12.10",
+    "@babel/preset-env": "^7.12.10",
+    "sequelize-cli": "^6.5.2"
+  }
+}
