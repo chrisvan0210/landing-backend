@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class LandingPage extends Model {
+  class LandingPages extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,12 +13,25 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  LandingPage.init({
-    meta1: DataTypes.STRING,
-    meta2: DataTypes.STRING
+  LandingPages.init({
+    title: DataTypes.STRING,
+    url: DataTypes.STRING,
+    keyword: DataTypes.STRING,
+    description: DataTypes.STRING,
+    analytics: DataTypes.STRING,
+    affid: DataTypes.STRING,
+    facebookcode: DataTypes.STRING,
+    noscript: DataTypes.STRING,
+    mainurl: DataTypes.STRING,
+    redirect: DataTypes.STRING,
+    h1: DataTypes.STRING,
+    h2: DataTypes.STRING,
+    button1: DataTypes.STRING,
+    button2: DataTypes.STRING,
+    button3: DataTypes.STRING,
   }, {
     sequelize,
-    modelName: 'LandingPage',
+    modelName: 'LandingPages',
   });
-  return LandingPage;
+  return LandingPages;
 };

@@ -1,20 +1,27 @@
 const express = require('express');
 const path = require('path');
 const port = process.env.PORT || 5000
+const bodyParser = require('body-parser')
 require('dotenv').config();
 const connectToDB = require('./config/connectToDB');
 const viewEngine = require('./src/config/viewEngine');
+const listRoutes = require('./src/route/routes')
 
 const app = express();
-viewEngine(app);
+// parse application/json using pure express
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: false }));
 
-//Enable body parsing
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
+viewEngine(app);
+listRoutes(app);
+
+
 
 connectToDB();
-app.use('/add',require('./src/route/routes'));
 
-console.log('Connect');
 
 app.listen(port, () => console.log('listening on port ' + port));

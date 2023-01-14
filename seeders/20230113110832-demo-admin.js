@@ -15,6 +15,7 @@ module.exports = {
     await queryInterface.bulkInsert('admin', [{
         username: 'chrish',
         password: '123456',
+        level:'1',
         createdAt: new Date(),
         updatedAt: new Date()
       }], {});

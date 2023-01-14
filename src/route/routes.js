@@ -1,7 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const postLandingPage = require('../controllers/landingControllers')
+const {postLandingPage,getLandingPage} = require('../controllers/landingControllers')
 
-router.post('/landingpage', postLandingPage)
+const listRoutes = (app) =>{
 
-module.exports = router;
+    router.post('/api/landingpage', postLandingPage)
+    router.get('/api/landingpage', getLandingPage)
+
+    return app.use(router)
+}
+
+
+
+module.exports = listRoutes;
