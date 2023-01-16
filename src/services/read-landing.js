@@ -2,22 +2,22 @@ const db = require("../../models/index");
 
 let GetLandingPage = async (id) => {
   try {
-    let getlanding;
+    let data;
     let response;
     if (id) {
-        getlanding = await db.LandingPages.findOne({
+      data = await db.LandingPages.findOne({
         where: { id },
       });
       response = {
         status: 200,
-        data: getlanding,
+        data: data,
       };
       return response;
     } else {
-      getlanding = await db.LandingPages.findAll();
+      data = await db.LandingPages.findAll();
       response = {
         status: 200,
-        data: getlanding,
+        data: data,
       };
       return response;
     }

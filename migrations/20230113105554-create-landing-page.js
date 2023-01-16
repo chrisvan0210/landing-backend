@@ -16,22 +16,22 @@ module.exports = {
         type: Sequelize.STRING
       },
       keyword: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       description: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       analytics: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       affid: {
         type: Sequelize.STRING
       },
       facebookcode: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       noscript: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       mainurl: {
         type: Sequelize.STRING
