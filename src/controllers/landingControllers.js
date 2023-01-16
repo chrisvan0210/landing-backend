@@ -75,6 +75,7 @@ const getLandingPage = async (req,res) =>{
     if(req.body && req.body.length !== 0){
         const response =  await DeleteLandingPage(req.body)
         if(response.status === 200){
+            res.setHeader("Access-Control-Allow-Origin", "*");
             return res.send({ success: response.message});
         }
         else{

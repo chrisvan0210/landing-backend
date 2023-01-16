@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const cors = require('cors')
 const port = process.env.PORT || 5000
 const bodyParser = require('body-parser')
 require('dotenv').config();
@@ -15,7 +16,8 @@ const app = express();
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-
+// app.use(cors({"origin": "http://localhost:5000/"}));
+app.use(cors());
 viewEngine(app);
 listRoutes(app);
 

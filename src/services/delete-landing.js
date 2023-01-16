@@ -1,11 +1,12 @@
 const db = require("../../models/index");
 
 let DeleteLandingPage = async (body) => {
+   
   try {
     let response;
     await db.LandingPages.destroy({ where: { id: body.id } })
       .then((res) => {
-        return res;
+       return res
       })
       .catch((err) => {
         console.log(err);
