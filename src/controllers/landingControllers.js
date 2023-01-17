@@ -8,6 +8,7 @@ const postLandingPage = async (req,res) =>{
     if(req.body && req.body.length !== 0){
         const response =  await AddLandingPage(req.body)
         if(response.status === 200){
+            res.setHeader("Access-Control-Allow-Origin", "*");
             return res.send({ success: response.message});
         }
         else{
@@ -33,7 +34,8 @@ const getLandingPage = async (req,res) =>{
     }
     const response =  await GetLandingPage(id);
     if(response.status === 200){
-        return res.send({ data: response.data});
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        return res.send(response.data);
     }else{
         return res.send({ error: response});
     }
@@ -43,6 +45,7 @@ const getLandingPage = async (req,res) =>{
     if(req.body && req.body.length !== 0){
         const response =  await UpdateLandingPageUser(req.body)
         if(response.status === 200){
+            res.setHeader("Access-Control-Allow-Origin", "*");
             return res.send({ success: response.message});
         }
         else{
@@ -59,6 +62,7 @@ const getLandingPage = async (req,res) =>{
     if(req.body && req.body.length !== 0){
         const response =  await UpdateLandingPageAdmin(req.body)
         if(response.status === 200){
+            res.setHeader("Access-Control-Allow-Origin", "*");
             return res.send({ success: response.message});
         }
         else{
