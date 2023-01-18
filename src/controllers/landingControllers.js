@@ -4,6 +4,24 @@ const UpdateLandingPageUser = require('../services/update-landing-user');
 const UpdateLandingPageAdmin = require('../services/update-landing-admin');
 const DeleteLandingPage = require('../services/delete-landing');
 
+
+const loginUser = async (req,res) =>{
+    if(req.body && req.body.length !== 0){
+        const response =  await LoginUser(req.body)
+        if(response.status === 200){
+            res.setHeader("Access-Control-Allow-Origin", "*");
+            return res.send({ success: response.message});
+        }
+        else{
+            return res.send({ error: response});
+        }
+        
+    }
+    else{
+        return res.send({ failed : "invalid body" });
+    }
+}
+
 const postLandingPage = async (req,res) =>{
     if(req.body && req.body.length !== 0){
         const response =  await AddLandingPage(req.body)
@@ -95,6 +113,7 @@ const getLandingPage = async (req,res) =>{
 
 
 module.exports = {
+    loginUser,
     postLandingPage,
     getLandingPage,
     updateLandingPageUser,

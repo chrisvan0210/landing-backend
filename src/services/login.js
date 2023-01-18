@@ -1,6 +1,6 @@
 const db = require("../../models/index");
 
-let GetLandingPage = async (id) => {
+let LoginUser = async (id) => {
   try {
     let data;
     let response;
@@ -34,4 +34,4 @@ let GetLandingPage = async (id) => {
   }
 };
 
-module.exports = GetLandingPage;
+module.exports = LoginUser;
