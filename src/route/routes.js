@@ -10,8 +10,9 @@ const {
 } = require("../controllers/landingControllers");
 
 const listRoutes = (app) => {
+  // Authentication
   router.post("/api/login", loginUser);
-
+  // Crud
   router.post("/api/addldp", postLandingPage);
   router.get("/api/getldp", getLandingPage);
   router.post("/api/updateldp-user", updateLandingPageUser);

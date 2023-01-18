@@ -6,7 +6,7 @@ const { Sequelize } = require('sequelize');
 const sequelize = new Sequelize(config.database, config.username, config.password, {
     host: '127.0.0.1',
     dialect: 'mysql',
-    logging: false
+    logging: false,
 });
 
 const connectToDB = async () => {

@@ -9,7 +9,12 @@
     "query": {
       "raw": true
     },
-    "timezone": "+08:00"
+    "define": { "freezeTableName": true },
+    "timezone": "+08:00",
+    "dialectOptions": {
+      "dateStrings": true,
+      "typeCast": true
+      }
   },
   "production": {
     "username": "admin",
@@ -21,8 +26,11 @@
     "query": {
       "raw": true
     },
+    "define": { "freezeTableName": true },
     "timezone": "+08:00",
     "dialectOptions": {
+      "dateStrings": true,
+      "typeCast": true,
       "ssl": {
         "require": true,
         "rejectUnauthorized": false

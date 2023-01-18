@@ -1,3 +1,4 @@
+const LoginUser = require('../services/login');
 const AddLandingPage = require('../services/create-landing');
 const GetLandingPage = require('../services/read-landing');
 const UpdateLandingPageUser = require('../services/update-landing-user');
@@ -5,12 +6,15 @@ const UpdateLandingPageAdmin = require('../services/update-landing-admin');
 const DeleteLandingPage = require('../services/delete-landing');
 
 
+
 const loginUser = async (req,res) =>{
     if(req.body && req.body.length !== 0){
-        const response =  await LoginUser(req.body)
-        if(response.status === 200){
+     
+        const response =  await LoginUser(req.body);
+        console.log("response",response)
+        if(response.user){
             res.setHeader("Access-Control-Allow-Origin", "*");
-            return res.send({ success: response.message});
+            return res.status(200).send(response);
         }
         else{
             return res.send({ error: response});
