@@ -6,7 +6,7 @@ let LoginUser = async (body) => {
         where: { username : body.username},
     })
     if(result.password === body.password) {
-        return {user :{username : result.username}}
+        return {username : result.username}
     }else{
         return {error: "loggin failed"}
     }

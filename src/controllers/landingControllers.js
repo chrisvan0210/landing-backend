@@ -11,12 +11,11 @@ const loginUser = async (req,res) =>{
     if(req.body && req.body.length !== 0){
      
         const response =  await LoginUser(req.body);
-        console.log("response",response)
-        if(response.user){
+        if(response){
             res.setHeader("Access-Control-Allow-Origin", "*");
             return res.status(200).send(response);
         }
-        else{
+        else if(response.error){
             return res.send({ error: response});
         }
         
