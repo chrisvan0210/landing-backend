@@ -2,8 +2,7 @@ const db = require("../../models/index");
 
 let UpdateLandingPageAdmin = async (body) => {
   try {
-    let response;
-    await db.LandingPages.update(
+    const res = await db.LandingPages.update(
       {
         title: body.title,
         url: body.url,
@@ -25,17 +24,8 @@ let UpdateLandingPageAdmin = async (body) => {
         where: { id: body.id },
       }
     )
-      .then((res) => {
-        return res;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    response = {
-      status: 200,
-      message: `Done updated`,
-    };
-    return response;
+    await new Promise(delay=> setTimeout(delay,3000))
+    return res;
   } catch (e) {
     console.log(e);
     if (e.message) {

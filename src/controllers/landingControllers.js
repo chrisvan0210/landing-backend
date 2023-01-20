@@ -16,29 +16,28 @@ const loginUser = async (req,res) =>{
             return res.status(200).send(response);
         }
         else if(response.error){
-            return res.send({ error: response});
+            return res.status(403).send({ error: response});
         }
         
     }
     else{
-        return res.send({ failed : "invalid body" });
+        return res.status(302).send({ failed : "invalid body" });
     }
 }
 
 const postLandingPage = async (req,res) =>{
     if(req.body && req.body.length !== 0){
         const response =  await AddLandingPage(req.body)
-        if(response.status === 200){
+        if(response){
             res.setHeader("Access-Control-Allow-Origin", "*");
-            return res.send({ success: response.message});
+            return res.status(200).send({ success: response.message});
         }
         else{
-            return res.send({ error: response});
+            return res.status(403).send({ error: response});
         }
-        
     }
     else{
-        return res.send({ failed : "invalid body" });
+        return res.status(302).send({ failed : "invalid body" });
     }
 }
 
@@ -54,45 +53,43 @@ const getLandingPage = async (req,res) =>{
         id = '';
     }
     const response =  await GetLandingPage(id);
-    if(response.status === 200){
+    if(response){
         res.setHeader("Access-Control-Allow-Origin", "*");
-        return res.send(response.data);
+        return res.status(200).send(response);
     }else{
-        return res.send({ error: response});
+        return res.status(403).send({ error: response});
     }
  }
 
  const updateLandingPageUser = async (req,res) =>{
     if(req.body && req.body.length !== 0){
         const response =  await UpdateLandingPageUser(req.body)
-        if(response.status === 200){
+        if(response){
             res.setHeader("Access-Control-Allow-Origin", "*");
-            return res.send({ success: response.message});
+            return res.status(200).send({ success: response.message});
         }
         else{
-            return res.send({ error: response});
+            return res.status(403).send({ error: response});
         }
-        
     }
     else{
-        return res.send({ failed : "invalid body" });
+        return res.status(302).send({ failed : "invalid body" });
     }
  }
 
  const updateLandingPageAdmin = async (req,res) =>{
     if(req.body && req.body.length !== 0){
         const response =  await UpdateLandingPageAdmin(req.body)
-        if(response.status === 200){
+        if(response){
             res.setHeader("Access-Control-Allow-Origin", "*");
-            return res.send({ success: response.message});
+            return res.status(200).send(response);
         }
         else{
-            return res.send({ error: response});
+            return res.status(403).send({ error: response});
         }
-        
     }
     else{
-        return res.send({ failed : "invalid body" });
+        return res.status(302).send({ failed : "invalid body" });
     }
  }
 
@@ -101,10 +98,10 @@ const getLandingPage = async (req,res) =>{
         const response =  await DeleteLandingPage(req.body)
         if(response.status === 200){
             res.setHeader("Access-Control-Allow-Origin", "*");
-            return res.send({ success: response.message});
+            return res.status(200).send({ message : "DeleteLandingPage Successfully!"});
         }
         else{
-            return res.send({ error: response});
+            return res.status(302).send({ error: response});
         }
         
     }

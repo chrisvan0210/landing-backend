@@ -1,20 +1,8 @@
 const db = require("../../models/index");
 
 let DeleteLandingPage = async (body) => {
-   
   try {
-    let response;
-    await db.LandingPages.destroy({ where: { id: body.id } })
-      .then((res) => {
-       return res
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    response = {
-        status: 200,
-        message: "Successfully deleted landing page",
-    }
+    let response = await db.LandingPages.destroy({ where: { id: body.id } })
     return response;
   } catch (e) {
     console.log(e);

@@ -2,7 +2,7 @@ const db = require('../../models/index')
 
 let AddLandingPage = async (body) => {
     try{
-        const addlanding = await db.LandingPages.create({
+        const response = await db.LandingPages.create({
             title: body.title,
             url: body.url,
             keyword: body.keyword,
@@ -19,22 +19,15 @@ let AddLandingPage = async (body) => {
             button2: body.button2,
             button3: body.button3,
         });
-        let response = {
-            status: 200,
-            message: 'Landing Page Added Successfully',
-        }
+        await new Promise(delay=> setTimeout(delay,3000))
         return response;
     }
     catch(e){
         console.log(e);
         if(e.message){
             console.log(e.message);
-            return e.message;
         }
-        return e
     }
-
-
 }
 
 module.exports = AddLandingPage
