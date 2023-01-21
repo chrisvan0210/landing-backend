@@ -6,6 +6,9 @@ let GetLandingPage = async (id) => {
       let data = await db.LandingPages.findOne({
         where: { id },
       });
+      await new Promise((delay) => {
+        setTimeout(delay, 3000);
+      });
       return data;
     } else {
       let data = await db.LandingPages.findAll({
@@ -13,6 +16,9 @@ let GetLandingPage = async (id) => {
           ['id', 'DESC'],
         ],
         attributes: ['id','title','url']
+      });
+      await new Promise((delay) => {
+        setTimeout(delay, 3000);
       });
       return data;
     }

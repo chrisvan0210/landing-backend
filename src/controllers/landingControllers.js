@@ -9,16 +9,14 @@ const DeleteLandingPage = require('../services/delete-landing');
 
 const loginUser = async (req,res) =>{
     if(req.body && req.body.length !== 0){
-     
         const response =  await LoginUser(req.body);
         if(response){
             res.setHeader("Access-Control-Allow-Origin", "*");
             return res.status(200).send(response);
         }
-        else if(response.error){
-            return res.status(403).send({ error: response});
+        else{
+            return res.status(403).send({error:"u get nothing"})
         }
-        
     }
     else{
         return res.status(302).send({ failed : "invalid body" });
