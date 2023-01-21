@@ -6,9 +6,9 @@ let GetLandingPage = async (id) => {
       let data = await db.LandingPages.findOne({
         where: { id },
       });
-      await new Promise((delay) => {
-        setTimeout(delay, 3000);
-      });
+      // await new Promise((delay) => {
+      //   setTimeout(delay, 1000);
+      // });
       return data;
     } else {
       let data = await db.LandingPages.findAll({
@@ -17,9 +17,9 @@ let GetLandingPage = async (id) => {
         ],
         attributes: ['id','title','url']
       });
-      await new Promise((delay) => {
-        setTimeout(delay, 3000);
-      });
+      // await new Promise((delay) => {
+      //   setTimeout(delay, 1000);
+      // });
       return data;
     }
   } catch (e) {

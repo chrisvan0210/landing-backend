@@ -24,7 +24,7 @@ let UpdateLandingPageAdmin = async (body) => {
         where: { id: body.id },
       }
     )
-    await new Promise(delay=> setTimeout(delay,3000))
+    // await new Promise(delay=> setTimeout(delay,1000))
     return res;
   } catch (e) {
     console.log(e);

@@ -6,9 +6,9 @@ let LoginUser = async (body) => {
       where: { username: body.username },
     });
     if (result && result.password === body.password) {
-      await new Promise((delay) => {
-        setTimeout(delay, 3000);
-      });
+      // await new Promise((delay) => {
+      //   setTimeout(delay, 1000);
+      // });
       return { username: result.username };
     }
   } catch (e) {

@@ -19,7 +19,7 @@ let AddLandingPage = async (body) => {
             button2: body.button2,
             button3: body.button3,
         });
-        await new Promise(delay=> setTimeout(delay,3000))
+        // await new Promise(delay=> setTimeout(delay,1000))
         return response;
     }
     catch(e){
