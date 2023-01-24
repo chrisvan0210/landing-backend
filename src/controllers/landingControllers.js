@@ -1,21 +1,22 @@
 const LoginUser = require('../services/login');
 const AddLandingPage = require('../services/create-landing');
 const GetLandingPage = require('../services/read-landing');
-const UpdateLandingPageUser = require('../services/update-landing-user');
-const UpdateLandingPageAdmin = require('../services/update-landing-admin');
+const UpdateEachColumn = require('../services/update-each-column');
+const UpdateAllColumns = require('../services/update-all-column');
 const DeleteLandingPage = require('../services/delete-landing');
 
 
 
 const loginUser = async (req,res) =>{
-    if(req.body && req.body.length !== 0){
+ 
+    if(req.body && req.body.username && req.body.password){
         const response =  await LoginUser(req.body);
         if(response){
             res.setHeader("Access-Control-Allow-Origin", "*");
             return res.status(200).send(response);
         }
         else{
-            return res.status(403).send({error:"u get nothing"})
+            return res.status(403).send({ error: "Server error"})
         }
     }
     else{
@@ -28,10 +29,10 @@ const postLandingPage = async (req,res) =>{
         const response =  await AddLandingPage(req.body)
         if(response){
             res.setHeader("Access-Control-Allow-Origin", "*");
-            return res.status(200).send({ success: response.message});
+            return res.status(200).send(response);
         }
         else{
-            return res.status(403).send({ error: response});
+            return res.status(403).send({ error: "Server error"});
         }
     }
     else{
@@ -59,15 +60,15 @@ const getLandingPage = async (req,res) =>{
     }
  }
 
- const updateLandingPageUser = async (req,res) =>{
+ const updateEachColumn = async (req,res) =>{
     if(req.body && req.body.length !== 0){
-        const response =  await UpdateLandingPageUser(req.body)
+        const response =  await UpdateEachColumn(req.body)
         if(response){
             res.setHeader("Access-Control-Allow-Origin", "*");
-            return res.status(200).send({ success: response.message});
+            return res.status(200).send(response);
         }
         else{
-            return res.status(403).send({ error: response});
+            return res.status(403).send({ error: "Server error"});
         }
     }
     else{
@@ -75,15 +76,15 @@ const getLandingPage = async (req,res) =>{
     }
  }
 
- const updateLandingPageAdmin = async (req,res) =>{
+ const updateAllColumns = async (req,res) =>{
     if(req.body && req.body.length !== 0){
-        const response =  await UpdateLandingPageAdmin(req.body)
+        const response =  await UpdateAllColumns(req.body)
         if(response){
             res.setHeader("Access-Control-Allow-Origin", "*");
-            return res.status(200).send(response);
+            return res.status(200).send({ message : "Update landing page Successfully!"});
         }
         else{
-            return res.status(403).send({ error: response});
+            return res.status(403).send({ error: "Server error" });
         }
     }
     else{
@@ -92,14 +93,14 @@ const getLandingPage = async (req,res) =>{
  }
 
  const deleteLandingPage = async (req,res) =>{
-    if(req.body && req.body.length !== 0){
+    if(req.body && req.body.id){
         const response =  await DeleteLandingPage(req.body)
-        if(response.status === 200){
+        if(response){
             res.setHeader("Access-Control-Allow-Origin", "*");
-            return res.status(200).send({ message : "DeleteLandingPage Successfully!"});
+            return res.status(200).send({ message : "Delete LandingPage Successfully!"});
         }
         else{
-            return res.status(302).send({ error: response});
+            return res.status(302).send({ error: "invalid id"});
         }
         
     }
@@ -114,7 +115,7 @@ module.exports = {
     loginUser,
     postLandingPage,
     getLandingPage,
-    updateLandingPageUser,
-    updateLandingPageAdmin,
+    updateEachColumn,
+    updateAllColumns,
     deleteLandingPage
 };

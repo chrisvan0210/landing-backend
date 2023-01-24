@@ -1,6 +1,6 @@
 const db = require("../../models/index");
 
-let UpdateLandingPageAdmin = async (body) => {
+let UpdateAllColumns = async (body) => {
   try {
     const res = await db.LandingPages.update(
       {
@@ -34,4 +34,4 @@ let UpdateLandingPageAdmin = async (body) => {
   }
 };
 
-module.exports = UpdateLandingPageAdmin;
+module.exports = UpdateAllColumns;

@@ -3,8 +3,8 @@ const router = express.Router();
 const {
   postLandingPage,
   getLandingPage,
-  updateLandingPageUser,
-  updateLandingPageAdmin,
+  updateEachColumn,
+  updateAllColumns,
   deleteLandingPage,
   loginUser,
 } = require("../controllers/landingControllers");
@@ -15,8 +15,8 @@ const listRoutes = (app) => {
   // Crud
   router.post("/api/addldp", postLandingPage);
   router.get("/api/getldp", getLandingPage);
-  router.post("/api/updateldp-user", updateLandingPageUser);
-  router.post("/api/updateldp-admin", updateLandingPageAdmin);
+  router.post("/api/update-each-col", updateEachColumn);
+  router.post("/api/update-all-col", updateAllColumns);
   router.post("/api/deleteldp", deleteLandingPage);
 
   return app.use(router);

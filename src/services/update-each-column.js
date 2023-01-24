@@ -1,6 +1,6 @@
 const db = require("../../models/index");
 
-let UpdateLandingPageUser = async (body) => {
+let UpdateEachColumn = async (body) => {
   try {
     let response;
     let keyname = Object.keys(body)[1].toString();
@@ -44,4 +44,4 @@ let UpdateLandingPageUser = async (body) => {
   }
 };
 
-module.exports = UpdateLandingPageUser;
+module.exports = UpdateEachColumn;
