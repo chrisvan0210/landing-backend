@@ -1,12 +1,12 @@
 'use strict';
-const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/config.json')[env];
+const dbConfig = require('../config/config');
 
 const { Sequelize } = require('sequelize');
-const sequelize = new Sequelize(config.database, config.username, config.password, {
-    host: '127.0.0.1',
+const sequelize = new Sequelize(dbConfig.database, dbConfig.username, dbConfig.password, {
+    host: process.env.DB_HOST || "localhost",
     dialect: 'mysql',
     logging: false,
+    socketPath: "/Applications/MAMP/tmp/mysql/mysql.sock"
 });
 
 const connectToDB = async () => {

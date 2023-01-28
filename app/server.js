@@ -6,7 +6,7 @@ const bodyParser = require('body-parser')
 require('dotenv').config();
 const connectToDB = require('./config/connectToDB');
 const viewEngine = require('./src/config/viewEngine');
-const listRoutes = require('./src/route/routes')
+const listRoutes = require('./src/route/routes');
 
 const app = express();
 // parse application/json using pure express
@@ -20,10 +20,16 @@ app.use(bodyParser.json())
 app.use(cors());
 viewEngine(app);
 listRoutes(app);
-
+// simple route
+app.get("/", (req, res) => {
+    res.json({ message: "Welcome to nodejs from docker" });
+  });
 
 
 connectToDB();
 
-
-app.listen(port, () => console.log('listening on port ' + port));
+// set port, listen for requests
+const PORT = process.env.NODE_DOCKER_PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
+});
