@@ -6,6 +6,7 @@
   "author": "ChrishVan",
   "license": "MIT",
   "scripts": {
+    "migrate": "npx sequelize-cli db:migrate",
     "start": "node server",
     "dev": "nodemon server"
   },
