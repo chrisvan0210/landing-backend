@@ -2,7 +2,7 @@ const db = require("../../models/index");
 
 let LoginUser = async (body) => {
   try {
-    let result = await db.Admin.findOne({
+    let result = await db.Admins.findOne({
       where: { username: body.username },
     });
     if (result && result.password === body.password) {

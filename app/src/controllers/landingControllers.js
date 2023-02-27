@@ -1,4 +1,5 @@
 const LoginUser = require('../services/login');
+const CreateUser = require('../services/users');
 const AddLandingPage = require('../services/create-landing');
 const GetLandingPage = require('../services/read-landing');
 const UpdateEachColumn = require('../services/update-each-column');
@@ -23,6 +24,23 @@ const loginUser = async (req,res) =>{
         return res.status(302).send({ failed : "invalid body" });
     }
 }
+const createUser = async (req,res) =>{
+ 
+    if(req.body && req.body.username && req.body.password){
+        const response =  await CreateUser();
+        if(response){
+            res.setHeader("Access-Control-Allow-Origin", "*");
+            return res.status(200).send(response);
+        }
+        else{
+            return res.status(403).send({ error: "Server error"})
+        }
+    }
+    else{
+        return res.status(302).send({ failed : "invalid body" });
+    }
+}
+
 
 const postLandingPage = async (req,res) =>{
     if(req.body && req.body.length !== 0){
@@ -113,6 +131,7 @@ const getLandingPage = async (req,res) =>{
 
 module.exports = {
     loginUser,
+    createUser,
     postLandingPage,
     getLandingPage,
     updateEachColumn,

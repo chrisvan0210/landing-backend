@@ -12,9 +12,9 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    await queryInterface.bulkInsert('admin', [{
-        username: 'chrish',
-        password: '123456',
+    await queryInterface.bulkInsert('admins', [{
+        username: 'admin',
+        password: 'admin556699',
         level:'1',
         createdAt: new Date(),
         updatedAt: new Date()
@@ -28,6 +28,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete('admin', null, {});
+    await queryInterface.bulkDelete('admins', null, {});
   }
 };

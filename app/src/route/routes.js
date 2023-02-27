@@ -7,11 +7,13 @@ const {
   updateAllColumns,
   deleteLandingPage,
   loginUser,
+  createUser,
 } = require("../controllers/landingControllers");
 
 const listRoutes = (app) => {
   // Authentication
   router.post("/api/login", loginUser);
+  router.post("/api/createuser", createUser);
   // Crud
   router.post("/api/addldp", postLandingPage);
   router.get("/api/getldp", getLandingPage);
